@@ -7,9 +7,15 @@ const io = require("socket.io")(server, {
     },
   });
 
+app.use('/public', express.static(__dirname+'/public'))
 
-app.get('/',(req,res)=>{res.sendFile(__dirname+'/index.html')})
-app.get('/script.js',(req,res)=>{res.sendFile(__dirname+'/script.js')})
+app.get('/',(req,res)=>{
+  res.send('this is home')}
+)
+app.get('/chat/',(req,res)=>{
+
+  res.sendFile(__dirname+'/public/html/index.html')}
+)
 
 
 const users = {}
