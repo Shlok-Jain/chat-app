@@ -10,8 +10,9 @@ const io = require("socket.io")(server, {
 app.use('/public', express.static(__dirname+'/public'))
 
 app.get('/',(req,res)=>{
-  res.send('this is home')}
-)
+  res.sendFile(__dirname+'/public/html/home.html')
+})
+
 app.get('/chat/',(req,res)=>{
 
   res.sendFile(__dirname+'/public/html/index.html')}
@@ -35,4 +36,4 @@ io.on('connection',socket=>{
       })
 })
 
-server.listen(process.env.PORT)
+server.listen(process.env.PORT || 80)
