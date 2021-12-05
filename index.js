@@ -13,6 +13,8 @@ app.get('/',(req,res)=>{
   res.sendFile(__dirname+'/public/html/home.html')
 })
 
+app.get('/about',(req,res)=>{ res.send("this app is made by shlok jain") })
+
 app.get('/chat/',(req,res)=>{
 
   res.sendFile(__dirname+'/public/html/index.html')}
